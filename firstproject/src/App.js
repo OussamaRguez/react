@@ -1,21 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Profile from './profile/profile';
+import Taswira from "./logo.svg";
 
 function App() {
+  const handleName = (x) => {
+    alert(x);
+  }
   return ( 
     <>
-    <h1>3id thawret Libya, Marhba Zied</h1>
-    <form>
-      <div class="mb-3">
-        <label  for="exampleFormControlInput1" class="form-label lab">Email address</label>
-        <input  type="email" class="form-control inp" id="exampleFormControlInput1" placeholder="name@example.com"/>
-      </div>
-      <div class="mb-3">
-        <label  for="exampleFormControlTextarea1" class="form-label lab">Example textarea</label>
-        <textarea class="form-control inp" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-
-    </form>
+    <Profile handleName={handleName} fullName='Oussama' bio='nothing' profession='amel yawmi'> <img src={Taswira} alt="tof" width="50px" /></Profile>
+    <Profile handleName={handleName} fullName='Youssef' bio='nothing' profession='ostedh'> </Profile>
+    <Profile handleName={handleName} fullName='x' profession='y'> </Profile>
     </>
 
   )
