@@ -1,32 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
+import logo from "./logo.svg";
+import "./App.css";
+import React from "react";
 
 class App extends React.Component {
-  state={
-    person:{fullName: 'Oussama Rguez',bio: 'nothing',imgSrc:logo,profession: 'Network Adminstrator'},
-    show:false,
-    interval:0,
-    timer:null
-  }
-  enzel=() =>{
-    this.setState({show:!this.state.show})
+  state = {
+    person: {
+      fullName: "Oussama Rguez",
+      bio: "nothing",
+      imgSrc: logo,
+      profession: "Network Adminstrator",
+    },
+    show: false,
+    interval: 0,
+    timer: null,
+  };
+  enzel = () => {
+    this.setState({ show: !this.state.show });
     console.log(this.state.show);
+  };
+
+  componentDidMount() {
+    this.setState({
+      timer: setInterval(() => {
+        this.setState({ interval: this.state.interval + 1 });
+      }, 1000),
+    });
   }
 
-  componentDidMount(){
-    this.setState({timer:setInterval(() => {
-      this.setState({interval:this.state.interval +1})
-    }, 1000)});
-  }
-
-  render (){
+  render() {
     return (
       <div className="App">
         <h2> The time since launch {this.state.interval}</h2>
 
         {this.state.show ? (
-          <>           
+          <>
             <h2>Full name: {this.state.person.fullName}</h2>
             <h2>Bio: {this.state.person.bio}</h2>
             <img src={this.state.person.imgSrc} alt="n/a" width={80} />
@@ -42,17 +49,6 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
 
 // import logo from './logo.svg';
 // import './App.css';
